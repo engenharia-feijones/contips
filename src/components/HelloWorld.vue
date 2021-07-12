@@ -23,24 +23,11 @@ export default {
   }),
 
   async created() {
-    await this.getIPFromAmazon();
-    await  this.postIp();
     await this.countIpsWithoutFilter();
     await this.countIpsWithtFilter()
   },
 
   methods: {
-    async getIPFromAmazon() {
-      let result = await axios.get("https://api.db-ip.com/v2/free/self");
-      this.disgraca.ip = result.data.ipAddress;
-    },
-
-    async postIp() {
-      await axios.post(
-        "https://ssacapsapi.azurewebsites.net/api/AcessIP",
-        this.disgraca
-      );
-    },
 
     async countIpsWithoutFilter() {
       let result = await axios.get(
