@@ -1,5 +1,10 @@
 <template>
-  <div class="hello"></div>
+  <div class="hello">
+
+   ip: {{ip}}
+
+
+  </div>
 </template>
 
 <script>
@@ -8,10 +13,11 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+    ip: String
   },
 
-  created(){
-    this.getIPFromAmazon();
+  async created(){
+    await this.getIPFromAmazon();
   },
 
   methods: {
@@ -19,6 +25,7 @@ export default {
       let result = await axios.get("https://api.db-ip.com/v2/free/self");
 
       console.log(result.data.ipAddress);
+      this.ip=result.data.ipAddress;
     },
   },
 
