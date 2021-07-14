@@ -2,6 +2,7 @@
   <v-app>
         <v-main>
       <Tracer/>
+     
     </v-main>
   </v-app>
 </template>
@@ -13,7 +14,8 @@ export default {
   name: 'App',
 
   components: {
-    Tracer,
+    Tracer
+  
   },
 
   data: () => ({
